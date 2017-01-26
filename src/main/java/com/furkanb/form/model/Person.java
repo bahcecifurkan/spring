@@ -6,6 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "person")
@@ -16,10 +19,23 @@ public class Person {
 	private int id;
 
 	@Column(name = "name", nullable = false)
+	@NotEmpty
 	private String name;
 
 	@Column(name = "surname", nullable = false)
+	@NotEmpty
 	private String surname;
+
+	public Person() {
+		super();
+	}
+
+	public Person(int id, String name, String surname) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.surname = surname;
+	}
 
 	public int getId() {
 		return id;

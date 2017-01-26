@@ -11,7 +11,24 @@
 	<div>
 		<h1>Form</h1>
 
-		<form:form method="POST" modelAttribute="person"
+		<form:form method="POST" modelAttribute="person" commandName="person"
+			class="form-horizontal">
+
+			<div class="row">
+				<form:input type="text" path="name" id="name" />
+			</div>
+
+			<div class="row">
+				<form:input type="text" path="surname" id="surname" />
+			</div>
+
+			<div class="row">
+				<input type="submit" value="Action">
+			</div>
+			
+		</form:form>
+		<h1>GET form</h1>
+		<form:form method="GET" modelAttribute="person" commandName="person" action="success"
 			class="form-horizontal">
 
 			<div class="row">
