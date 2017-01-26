@@ -65,4 +65,17 @@ public class MainController {
 		return new Person(1, "json", "json");
 	}
 
+	@RequestMapping(value = "/ftlform")
+	public String index(@ModelAttribute("model") ModelMap model) {
+		model.addAttribute("personList", personService.listPerson());
+		return "form";
+	}
+
+	@RequestMapping(value = "/ftlsuccess")
+	public String success(@RequestParam("name") String pName, @RequestParam("surname") String pSurname, Model map) {
+		Person person = new Person(0, pName, pSurname);
+		map.addAttribute("person", person);
+		return "success";
+	}
+
 }
